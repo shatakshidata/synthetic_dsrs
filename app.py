@@ -17,8 +17,15 @@ import os
 # Load environment variables
 load_dotenv()
 
-# Set OpenAI API key
-openai.api_key = os.getenv("OPENAI_API")
+# Check if running in a deployment environment (e.g., Streamlit Cloud)
+if os.getenv("OPENAI_API"):
+    # Get the API key from the secret
+    openai.api_key = os.getenv("OPENAI_API")
+else:
+    # Local development using .env file
+    from dotenv import load_dotenv
+    load_dotenv()
+    openai.api_key = os.getenv("openai")  # Matches .env variable
 
 if not openai.api_key:
     raise ValueError("OpenAI API key is not set. Please check your .env file or environment variables.")
