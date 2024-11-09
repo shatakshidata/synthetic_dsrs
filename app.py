@@ -18,11 +18,10 @@ import os
 load_dotenv()
 
 # Set OpenAI API key
-openai.api_key = os.getenv("openai")
+openai.api_key = os.getenv("OPENAI_API")
 
 if not openai.api_key:
     raise ValueError("OpenAI API key is not set. Please check your .env file or environment variables.")
-
 
 import time
 time.sleep(1)
