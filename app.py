@@ -11,7 +11,18 @@ Original file is located at
 
 import openai
 
-openai.api_key ='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'
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
+
+# Set OpenAI API key
+openai.api_key = os.getenv("openai")
+
+if not openai.api_key:
+    raise ValueError("OpenAI API key is not set. Please check your .env file or environment variables.")
+
 
 import time
 time.sleep(1)
