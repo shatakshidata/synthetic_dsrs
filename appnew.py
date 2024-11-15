@@ -15,6 +15,7 @@ from datetime import datetime, timedelta
 import json
 import re
 import os
+import streamlit as st
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -189,7 +190,7 @@ import streamlit as st
 # Streamlit app
 st.title("Synthetic Data Generator")
 
-import streamlit as st
+
 
 # Use Streamlit Secrets for API key
 openai.api_key = st.secrets.get("OPENAI_API")
