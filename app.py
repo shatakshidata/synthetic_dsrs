@@ -117,7 +117,6 @@ def generate_large_synthetic_data(total_rows, batch_size, start_date, subcategor
         start_date += timedelta(days=30 * batch_size)
 
         time.sleep(delay)
-            print(f"Warning: Batch {i // batch_size + 1} failed. Skipping...")
         
     return pd.concat(all_data, ignore_index=True) if all_data else None
 
